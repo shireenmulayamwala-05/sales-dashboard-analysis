@@ -16,27 +16,17 @@ def run(cmd):
 
 
 print("=" * 50)
-print("PUSHING PROJECT TO GITHUB")
+print("SYNCING AND PUSHING TO GITHUB")
 print("=" * 50)
 print()
 
-# configure git identity (needed on some machines)
-run('git config user.email "shireenmulayamwala@gmail.com"')
-run('git config user.name "shireenmulayamwala-05"')
+# pull remote changes first, allow unrelated histories
+run('git pull origin master --allow-unrelated-histories --no-edit')
 
-# stage all new and changed files
-run('git add .')
-
-# show what will be committed
-run('git status')
-
-# commit
-run('git commit -m "Add complete analytics project: EDA, SQL, Streamlit dashboard, reports, docs"')
-
-# push
+# push everything
 run('git push origin master')
 
 print("=" * 50)
-print("DONE — Check your GitHub repo:")
+print("DONE — Your repo:")
 print("https://github.com/shireenmulayamwala-05/sales-dashboard-analysis")
 print("=" * 50)
